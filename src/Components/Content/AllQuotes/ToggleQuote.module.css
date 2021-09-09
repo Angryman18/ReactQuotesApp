@@ -1,0 +1,80 @@
+@import url("https://fonts.googleapis.com/css2?family=Bitter&display=swap");
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  width: 25vw;
+  height: 10vw;
+  text-align: center;
+  border-left: 2px solid indianred;
+  border-bottom: 2px solid indianred;
+  border-right: 2px solid indianred;
+  background-color: indianred;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  animation: contentAnimation 0.3s ease;
+}
+
+@keyframes contentAnimation {
+  0% {
+    height: 0vw;
+  }
+
+  100% {
+    height: 10vw;
+  }
+}
+
+.content__reverse {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  width: 25vw;
+  height: 10vw;
+  text-align: center;
+  border-left: 2px solid indianred;
+  border-bottom: 2px solid indianred;
+  border-right: 2px solid indianred;
+  background-color: indianred;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  animation: AnimationReverse 0.3s ease;
+}
+
+@keyframes AnimationReverse {
+  0% {
+    height: 10vw;
+  }
+
+  100% {
+    height: 0vw;
+  }
+}
+
+.content h3 {
+  color: #fff;
+  animation: visible 0.5s ease;
+  font-family: "Bitter", serif;
+  font-size: 1.5rem;
+}
+
+@keyframes visible {
+  0% {
+    color: indianred;
+  }
+  100% {
+    color: #fff;
+  }
+}

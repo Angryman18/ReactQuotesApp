@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React from "react";
+import Header from "./Components/Header/Header";
+import AllQuotes from "./Pages/AllQuotes";
+import AddQuote from "./Pages/AddQuotes";
+import { Route } from "react-router";
+import QuoteDetails from "./Pages/QuoteDetails";
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+      <Header />
+      <Route exact path="/">
+        <AllQuotes />
+      </Route>
+      <Route exact path="/addquotes">
+        <AddQuote />
+      </Route>
+      <Route exact path="/quote/:title">
+        <QuoteDetails />
+      </Route>
+    </React.Fragment>
   );
 }
 

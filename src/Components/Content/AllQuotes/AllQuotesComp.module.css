@@ -1,0 +1,40 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+
+.content {
+  width: 30vw;
+  height: 10vh;
+  border: 1px groove;
+  margin-top: 5px;
+  border-radius: 20px;
+  background-color: rgba(187, 121, 241, 0.5);
+  transition: 0.1s ease-in-out;
+  cursor: pointer;
+}
+
+.content:hover {
+  background-color: rgba(71, 148, 8, 0.5);
+}
+
+.content__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0px 20px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.content__inner span {
+    border: 1px groove;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: rgba(217, 255, 0, 0.8);
+}

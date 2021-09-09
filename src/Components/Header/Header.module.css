@@ -1,0 +1,32 @@
+.Header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: rgba(2, 7, 77,0.8);
+}
+.logo {
+    color: white;
+}
+.links {
+    font-size: 1rem;
+}
+
+li{
+    list-style: none;
+    display: inline;
+    padding: 5px;
+    margin: 5px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+li:hover {
+    color: rgba(255, 238, 0, 0.5);
+}
+
+.activeLinks li {
+    color: rgba(255, 238, 0, 0.5);
+}
