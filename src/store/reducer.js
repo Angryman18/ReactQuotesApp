@@ -7,7 +7,7 @@ const reducer = (state = reducerState, actions) => {
   switch (actions.type) {
     case "add":
       const obj = {
-        id: Math.random(),
+        id: actions.quote.id,
         title: actions.quote.title,
         desc: actions.quote.desc,
       };

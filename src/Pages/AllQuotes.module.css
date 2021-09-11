@@ -5,3 +5,17 @@
     align-items: center;
     margin: 10px;
 }
+
+.content button {
+    padding: 5px 20px;
+    background-color: beige;
+    outline: none;
+    font-size: 0.9rem;
+    border: 2px solid rgba(4, 127, 175, 0.5);
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.content button:hover {
+    background-color: rgba(0, 255, 242, 0.2);
+}

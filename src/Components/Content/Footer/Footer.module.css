@@ -1,0 +1,12 @@
+
+
+.main {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    text-align: center;
+    background-color: rgb(26, 95, 245,0.9);
+    color: #fff;
+    font-weight: bold;
+    padding: 10px;
+}

@@ -1,16 +1,22 @@
 import React from "react";
 import style from "./CommentForm.module.css";
 import Button from "../../../UI/Button";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import useTouch from "../../../Hooks/useTouch";
 
-const CommentForm = () => {
+import { sendComment } from "../../../api/api";
+import useHttp from "../../../Hooks/useHttp";
+import LoadingSpinner from "../../../UI/LoadingSpinner";
+
+
+const CommentForm = ({reloadComments}) => {
   const inputName = React.useRef();
   const inputComment = React.useRef();
-  const dispatch = useDispatch();
   const getTempId = useSelector((state) => state.uiReducer.tempId);
 
   const { BlurHander, isTouched, reset } = useTouch();
+
+  const { sendReq, status, loading } = useHttp(sendComment);
 
   const nameTouch = isTouched("name");
   const commentTouch = isTouched("comment");
@@ -19,20 +25,29 @@ const CommentForm = () => {
     e.preventDefault();
     const name = inputName.current.value;
     const comment = inputComment.current.value;
-    const obj = {
-      id: getTempId,
-      name,
-      comment,
-    };
     if (name.trim().length < 3 || comment.trim().length < 1) {
       return;
     }
-    dispatch({ type: "addComment", commentObj: obj });
-    reset()
+    const theComment = {
+      id: getTempId,
+      body: {
+        name,
+        comment,
+      },
+    };
+    sendReq(theComment);
+    reset();
     inputName.current.value = "";
     inputComment.current.value = "";
   };
 
+  React.useEffect(() => {
+    if (status) {
+      reloadComments()
+    }
+  }, [status, reloadComments])
+
+  
   return (
     <React.Fragment>
       <form onSubmit={submitHandler} className={style.comment__Form}>
@@ -69,7 +84,8 @@ const CommentForm = () => {
           />
         </div>
         <div id={style.element}>
-          <Button title="Add Comment" />
+          {!loading && <Button title="Add Comment" />}
+          {loading && <LoadingSpinner />}
         </div>
       </form>
     </React.Fragment>

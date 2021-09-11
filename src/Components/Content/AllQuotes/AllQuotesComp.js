@@ -3,13 +3,13 @@ import React from "react";
 import ToggleQuote from "./ToggleQuote";
 import { useDispatch } from "react-redux";
 
-const AllQuotesComp = ({ title, desc, id }) => {
+const AllQuotesComp = ({ title, desc, uniqueID, id }) => {
   const [toggle, setToggle] = React.useState(false);
   const dispatch = useDispatch()
 
   const ToggleHandler = () => {
     setToggle(!toggle);
-    dispatch({type: "tempID", id: id})
+    dispatch({type: "tempID", id: uniqueID})
   };
 
   return (
@@ -19,7 +19,7 @@ const AllQuotesComp = ({ title, desc, id }) => {
           <h4>{title}</h4>
         </div>
       </div>
-      {toggle && <ToggleQuote title={title} desc={desc} />}
+      {toggle && <ToggleQuote desc={desc} id={id} />}
     </React.Fragment>
   );
 };
